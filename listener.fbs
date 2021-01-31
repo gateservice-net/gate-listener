@@ -2,64 +2,62 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-namespace flat;
-
-enum BindError: int {
-    None,
-    TooManyBindings,
-    AlreadyBound,
-    InvalidAcceptSize,
-    InvalidName,
-    NameTooLong,
-    UnsupportedPort,
+enum BindError:int16 {
+  None,
+  TooManyBindings,
+  AlreadyBound,
+  InvalidAcceptSize,
+  InvalidName,
+  NameTooLong,
+  UnsupportedPort,
 }
 
-enum AcceptError: int {
-    None,
+enum AcceptError:int16 {
+  None,
 }
 
 // IPAddr contains an IPv4 or an IPv6 address.  The values are in big-endian
 // (network) byte order.
 struct IPAddr {
-    a: uint32; // IPv4 address, or most significant bits of IPv6 address.
-    b: uint32;
-    c: uint32;
-    d: uint32;
+  a:uint32; // IPv4 address, or most significant bits of IPv6 address.
+  b:uint32;
+  c:uint32;
+  d:uint32;
 }
 
 struct AcceptBasic {
-    error: AcceptError;
-    conn_id: int32;
-    addr: IPAddr;
-    port: uint16;
+  error:AcceptError;
+  conn_id:int32;
+  addr:IPAddr;
+  port:uint16;
 }
 
 table Accept {
-    basic: AcceptBasic;
+  basic:AcceptBasic;
 }
 
-enum AcceptSize: int16 {
-    Invalid = 0,
-    Basic = 44,  // Encoded size of Accept including AcceptBasic.
+enum AcceptSize:int16 {
+  Invalid = 0,
+  Basic = 44, // Encoded size of Accept including AcceptBasic.
 }
 
 table BindTLS {
-    accept_size: AcceptSize;
-    name: string;
-    port: uint16;
+  accept_size:AcceptSize;
+  name:string;
+  port:uint16;
 }
 
 table Binding {
-    error: BindError;
-    listen_id: int32;
-    host: string;
-    port: uint16;
+  error:BindError;
+  listen_id:int32;
+  host:string;
+  port:uint16;
 }
 
 union Function {
-    BindTLS,
+  BindTLS,
 }
 
 table Call {
-    function: Function;
+  function:Function;
 }
