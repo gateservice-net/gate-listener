@@ -65,6 +65,7 @@ func Main() error {
 		{"Telnet", "", "992"},
 		{"IMAP", "", "993"},
 		{"POP3", "", "995"},
+		{"", "", "1111"},
 		{"Gemini", "", "1965"},
 		{"UUCP", "", "4031"},
 		{"SIP", "", "5061"},
@@ -76,10 +77,17 @@ func Main() error {
 		{"IRC", "", "6697"},
 		{"MQTT", "", "8883"},
 	}
+
 	for i, p := range ports {
-		name := strings.ToLower(strings.Replace(strings.Replace(p.name, "/", "-", -1), " ", "-", -1))
-		usage := fmt.Sprintf("Local %s listening port or address, forwarded to remote TLS port %s", p.name, p.remotePort)
-		flag.StringVar(&ports[i].localAddr, name, p.localAddr, usage)
+		name := p.name
+		key := strings.ToLower(strings.Replace(strings.Replace(name, "/", "-", -1), " ", "-", -1))
+
+		if name == "" {
+			name = "custom protocol"
+			key = p.remotePort
+		}
+
+		flag.StringVar(&ports[i].localAddr, key, p.localAddr, fmt.Sprintf("Local %s listening port or address, forwarded to remote TLS port %s", name, p.remotePort))
 	}
 
 	flag.Parse()
