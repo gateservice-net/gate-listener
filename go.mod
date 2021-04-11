@@ -1,6 +1,6 @@
-module savo.la/gate/listener
+module gateservice.net/listener
 
-go 1.13
+go 1.16
 
 require (
 	github.com/tsavola/mu v1.1.0

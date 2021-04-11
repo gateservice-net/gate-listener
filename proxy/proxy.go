@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// Package proxy can be used with the Gate service savo.la/gate/listener when
-// it doesn't allow public client connections.  The proxy creates client
+// Package proxy can be used with the Gate service gateservice.net/listener
+// when it doesn't allow public client connections.  The proxy creates client
 // certificates using the Ed25519 private key which owns the Gate instance.
 package proxy
 

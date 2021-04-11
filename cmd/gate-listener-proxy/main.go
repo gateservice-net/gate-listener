@@ -18,8 +18,8 @@ import (
 	"path"
 	"strings"
 
+	"gateservice.net/listener/proxy"
 	"golang.org/x/crypto/ssh"
-	"savo.la/gate/listener/proxy"
 )
 
 type portDesc struct {
