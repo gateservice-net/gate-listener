@@ -15,16 +15,18 @@ import (
 	"io"
 	"math/big"
 	"net"
+	"sync"
 	"time"
 
-	"github.com/tsavola/mu"
+	"import.name/lock"
+	"import.name/lock/unlock"
 )
 
 // Proxy manages client certificates automatically.
 type Proxy struct {
 	key ed25519.PrivateKey
 
-	mu      mu.Mutex
+	mu      sync.Mutex
 	pending chan struct{}
 	certs   []tls.Certificate // 0 to 1 certificates.
 	err     error
@@ -96,7 +98,7 @@ retry:
 			go p.replaceCert()
 		} else if p.certs[0].Leaf.NotAfter.Before(now.Add(4 * time.Minute)) {
 			wait := p.pending
-			p.mu.UnlockGuard(func() {
+			unlock.Guard(&p.mu, func() {
 				<-wait
 				now = time.Now()
 			})
@@ -113,7 +115,7 @@ func (p *Proxy) replaceCert() {
 		err   error
 	)
 
-	defer p.mu.Guard(func() {
+	defer lock.Guard(&p.mu, func() {
 		close(p.pending)
 		p.pending = nil
 		p.certs = certs

@@ -1,7 +1,3 @@
-github.com/tsavola/mu v1.0.0 h1:U0Xhjsfc5gDJHfMjGFK0vByPG9QpxnRJ8P3F2k32KlI=
-github.com/tsavola/mu v1.0.0/go.mod h1:uh+UOPcLhbDz4XoMmPg0/9Rl7BCIV0snqUWQEgZrSXc=
-github.com/tsavola/mu v1.1.0 h1:ASXrJeSkZy7gePKCy5rmfR3A2Zn5gg03aHa5Kn8GH9s=
-github.com/tsavola/mu v1.1.0/go.mod h1:uh+UOPcLhbDz4XoMmPg0/9Rl7BCIV0snqUWQEgZrSXc=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/crypto v0.0.0-20210220033148-5ea612d1eb83 h1:/ZScEX8SfEmUGRHs0gxpqteO5nfNW6axyZbBdw9A12g=
 golang.org/x/crypto v0.0.0-20210220033148-5ea612d1eb83/go.mod h1:jdWPYTVW3xRLrWPugEBEK3UY2ZEsg3UU495nc5E+M+I=
@@ -12,3 +8,5 @@ golang.org/x/sys v0.0.0-20191026070338-33540a1f6037/go.mod h1:h1NjWce9XRLGQEsW7w
 golang.org/x/term v0.0.0-20201117132131-f5c789dd3221 h1:/ZHdbVpdR/jk3g30/d4yUL0JU9kksj8+F/bnQUVLGDM=
 golang.org/x/term v0.0.0-20201117132131-f5c789dd3221/go.mod h1:Nr5EML6q2oocZ2LXRh80K7BxOlk5/8JxuGnuhpl+muw=
 golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
+import.name/lock v0.0.0-20211205191324-f24933776f0b h1:BGZe3RGI6lRASOz5fdX9i00k9f5BXdWMG4DG7qohCAY=
+import.name/lock v0.0.0-20211205191324-f24933776f0b/go.mod h1:A/P+1darHq1WWQZaqhNcXx0mdLynmjtDPIu6g0ZxuX8=
